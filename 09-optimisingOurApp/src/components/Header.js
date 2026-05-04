@@ -52,6 +52,9 @@ const Header = () => {
                     <li><Link to='/'>Online: {onlineStatus? "🟢": "🔴"} </Link></li>
                     <li><Link to='/'>Home</Link></li>
                     <li><Link to='/About'>About US</Link></li>
+                    <Link to="/grocery">
+                                <li>Grocery</li>
+                            </Link>
                     <li><Link to='/Contact'>Contact</Link></li>
                     <li>Cart</li>
                 </ul>
