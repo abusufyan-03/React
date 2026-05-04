@@ -1,0 +1,168 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    width: 100%;
+}
+
+body {
+    box-sizing: border-box;
+    font-size: 1.6rem;
+    background-color: hsl(217, 89%, 98%);
+}
+
+:root {
+    --text-muted: rgba(2, 6, 12, 0.6);
+}
+
+@font-face {
+    font-family: 'font-one';
+    src: url("./public/Gilroy-Black.eot");
+}
+
+.header {
+    border: 1px solid black;
+    height: 6.4rem;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 6.4rem;
+    padding: 3.2rem;
+    background-color: white;
+    box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.10);
+}
+
+.logo {
+    width: 75px;
+}
+
+.nav-items {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    align-items: center;
+}
+
+.main {
+    padding: 1.6rem;
+    /* display: flex;
+    justify-content: center; */
+    /* border: 1px solid black; */
+    margin: 1.6rem;
+}
+.section-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.search-container {
+    align-self: start;
+    padding-left: 1.6rem;
+}
+
+#search {
+    width: 30rem;
+    padding: 1.5rem;
+    border-radius: .8rem;
+    border: none;
+    border: 1px solid var(--text-muted);
+}
+
+.search-btn {
+    padding: 1.6rem;
+    border: none;
+    background-color: hsl(158, 72%, 38%);
+    color: white;
+    border-radius: .8rem;
+    margin-left: 1.6rem;
+    cursor: pointer;
+}
+
+
+.res-container {
+    height: 100%;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-wrap: wrap;
+    /* border: 1px solid black; */
+    margin-top: 1rem;
+}
+
+.res-card {
+    /* border: 1px solid black; */
+    /* padding: 1.6rem; */
+    margin: 1.6rem;
+    background-color: hsl(217, 89%, 100%);
+    box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+    border-radius: 1rem;
+}
+
+
+.res-card:hover {
+    scale: 1.1;
+}
+
+.res-img {
+    width: 31rem;
+    height: 20.6rem;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+
+.food-info {
+    padding: 1.6rem;
+}
+
+.food-detail {
+    display: flex;
+    margin-top: 1.6rem;
+    justify-content: space-between;
+}
+
+
+.filter-btn {
+    padding: 1.6rem;
+    border: none;
+    background-color: hsl(158, 72%, 38%);
+    color: white;
+    border-radius: .8rem;
+    margin-left: 1.6rem;
+    cursor: pointer;
+}
+
+.shimmer-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.shimmer-card{
+    width: 31rem;
+    height: 21.6rem;
+    background-color: lightgray;
+    margin: 1.6rem;
+    border-radius: 1rem;
+}
+
+.login-btn {
+    padding: .4rem .8rem;
+    cursor: pointer;
+}
+
+.wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

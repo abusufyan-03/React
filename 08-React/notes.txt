@@ -1,0 +1,102 @@
+# Class base Components
+- class base component is a older way of creating Components
+
+- nowday in latest project we wouldn't need to use the class base component
+
+Then why to learn?
+- it still asked in interveiw cause lots of older project has used class base component
+
+- if we know class base component then understanding React will become very strong
+
+functional component is the new way of writting code but if we know about earler how we used to write code your understanding of todays concepts will become even more stronger
+
+- you will  get that how painfull it was to write code
+
+- it will help us to understand that how react cycle works, how react component render into the page, what is the beuti of react component
+
+now let's get started:
+
+let's rewrite about us page in class base component
+
+First we will write user detail in functional component then in class base component
+
+ok so what is functional component?
+- a function which return jsx code
+
+and what is class base component
+- it's a normal js class
+class base component is a class which has a render method which returns some peice of jsx code
+
+let's see how can we pass data in component
+
+H.W:
+Why do we write super keyword in class compoent to pass data
+
+Let's see how do we used to write hooks in classComponent
+
+earlier there were no hooks 
+
+// part 04 - Life Cycle of React
+construtor
+super
+
+we also have someting 
+compoentdidMount by a classComponent which gets called after the construtor and and render function
+
+Now the question arise
+If we have in About.js
+Parent:
+construtor
+ComponentdidMount
+render() {
+    <userClass/>
+}
+
+in UserClass
+Child:
+construtor
+ComponentdidMount
+render()
+
+What will be the order of execution:?
+
+First it will call parent construtor then it will call parent render and then it will see inside the render we have a child also then it will trigger the Life Cylce of child now, now child construtor will be called then child render will be called now there is no component it will render it properly ones the child rendering is finished, now the Child componentDidMount will be called now this whole component is mounted successfully now the parent componentDidMount will be called
+
+# Now let's see why do we have componentDidMount exist ?
+- there are someting that we do ones the component is mounted successfully
+
+What are those things?
+- componentDidMount is used to make API CALL
+
+But why do we make api call inside componentDidMount?
+- cause we want to render our component as soon as possible then make an api call and the get the data
+
+
+-----------------------
+part 05:
+React Life Cycle
+- Parent construtor
+- Parent render
+
+   - first child construtor
+   - first child render
+
+   - second child construtor
+   - second child render
+
+   - first child componentDidMount
+   - second child compoentdidMount
+   - Parent compoentdidMount 
+
+
+// part 06
+
+
+
+
+
+
+// more deep dive (extra)
+Disclaimer:
+Never ever compare useEffect to componentDidMount
+They are different

@@ -1,0 +1,18 @@
+let's create script to run our project
+
+"scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest"
+  },
+
+Now instead of writting whole  long command we'll just use simple script to run our project:
+
+npm run start/build 
+or 
+npm start (it only works for start)
+
+- start => for dev mode
+- build => for prod mode
+
+// let's see what are the fundamental and lay our foundation part:02

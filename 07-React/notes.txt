@@ -1,0 +1,73 @@
+# finding the path
+In this folder we will learn about routing
+
+- we'll see how can we create multiple URL Route
+- how can we create nested routes
+- how can we create different pages
+
+// part 01
+
+# useEffect
+it has two parameter one is callback fun and 2nd one is dependecies array
+
+if we use useEffect insdie a header component
+
+useEffect will be called every time my component render (only when there is no dependencies array)
+
+What if there is empty dependencies array?
+then it will render only on intial (just once)
+
+and when there is somthing inside the the array then it will call whenever our component render
+
+----
+// part 02
+Things to not do:
+- never create state variable outside of the component scope
+- never create useState inside a if-else/forLoop/innerFunction block
+
+-----
+
+// part 03
+
+let's see how can we create differents routes
+
+now we have created routes
+- About
+- Contact
+- Error
+
+Let's see how can we create something like if we go in any routes then our header should be there except body, in the place of body we will render the route
+
+This is called creating a children route
+
+now let's make all those nav links working 
+
+like if we click to about us then it should redirect us to about us page 
+
+to do that we can use anchor tag but we should never do that 
+cause when we go to to about us page the whole page is getting refresh
+
+We will build in way that will not reload our page (we will use linkComponent)
+
+- without LinkCOmponent it refresh the page
+
+# Two types of Routing in web apps
+- client side routing 
+- server side routing
+
+What routing does React use?
+React uses client-side routing, usually with React Router, where page navigation happens without full page reload.
+
+----------------
+
+part 05 - 25-12-25
+
+now we we'll see:
+- we're going to make different pages for different restaurants
+- how dynamic routing works
+
+
+# Dynamic Routing
+- Dynamic routes allow us to create routes with variable so the same component can handle multiple URLs with different data
+
+let's create a Restaurants Menu

@@ -1,0 +1,222 @@
+npm is a node package manager it does not stand `node package manager` 
+
+it manages all the package that we install in our project
+
+What is package.json file?
+- this package.json file is basically a configuration for our npm
+
+Why do we need package.json?
+- sometimes this packages also known as dependencies  
+
+
+create-React-app uses webpack behind the scene
+in this project we will use parcel
+
+To install parcel we use  this command:
+npm install -D parcel
+
+what's that -D is doing?
+There are two types of packages/dependencies that we can install one is the 
+- dev dependencies
+- normal dependencies
+
+parcel is a bundler
+
+"devDependencies": {
+    "parcel": "^2.16.3"
+  }
+what is this caret ^?
+- when there is any minor update comes and we already putted caret then it will automatically upgrade it's version
+
+- if we put tilde then if there any major updates commes then it will automatically upgrade it's version
+
+it is safe to use ^ caret 
+becaus if we upgrade to major things then there is chance things can break
+
+Read more about this
+
+now after installing parcel we got `package-lock.json` 
+what is package-lock-json?
+
+Let's see what is package.json?
+- it's a configuration for our npm it keeps the track of what versoin of package is install in our system
+
+package-lock.json 
+it keeps the track of exact versoin when it were installed
+
+What are other things?
+"node_modules/parcel": {
+      "version": "2.16.3",
+      "resolved": "https://registry.npmjs.org/parcel/-/parcel-2.16.3.tgz",
+      "integrity": "sha512-N9jnwcTeVEaRjjJCCHmYfPCvjjJeHZuuO50qL4CCNcQX4RjwPuOaDft7hvTT2W8PIb4XhhZKDYB1lstZhXLJRQ==",
+      "dev": true,
+}
+what is this intigrity?
+- this intigrity is basically a hash 
+why this hash present over here
+- have you ever heard of this that it's working on my local but don't how it breaks in production  
+
+- so basically to avoid that package-lock.json keeps a hash to verify whatever righ now present in my machine is the same version which is being deployed on to the production
+
+- it's a very very important file it keeps the track of all the exact version 
+
+and when we install parcel there is one more things which we got is 
+- node module
+
+package.json is the configuration for our npm and node module is kind of DB it contains the actuall data(Code)
+
+- node module basically fetches all the code of dependencies into our system and now we can use that code so, node_modules is kind of DB where all the package exist
+
+now the question arrive 
+I just installed the parcel so why there are so many packages inside the node_modules?
+
+It came over here cause our project need parcel, our project has a dependencies parcel, now as parcel as project has it's own dependencies and those dependencies can have their own dependencies and those dependencies can have their own dependencies this is known as transitive dependencies
+
+- our project has dependencies parcel now parcel can have their own dependencies parcel is kind of beast parcel can not do things it their own it need help of lots of packages 
+- barbel
+- browserList
+Note: none of things are garbage
+
+Should i put this node_modules put on production or git? 
+=> Nooooo
+
+Should i put package and package-lock.json in git? 
+=> Yessssss
+
+- if we have package and package-lock.json then we can recreate node_modules
+even if we delete node_modules and if we have those two files then we can regenrate it
+using -> npm install
+
+whatever we can regenrate don't put that thing in git
+
+// part 02:
+
+let's ignite our app for that we need to use command:
+npx parcel index.html
+
+meaning:
+just like we have npm similary we have something known as npx which use to execute code 
+it means we have executed parcel, the bundeler 
+
+the parcel is such a beast
+
+parcel goes to the source of index.html build the development build and host that dev build to localhost at port 1234 that's how we are able to access our app over localhost 1234
+
+- earlier we saw how we injected react using CDN link that was the one way
+
+- another way to get react into our app is via npm 
+- what is react in the end of the day ?it's just a js code and it is hosted over npm also
+
+- in npm we get React from npm now we don't want to use CDN link this is not a good things to bring the React into our project
+
+Why?
+- it is a costly operation if we fetch from CDN it will make a network call to unpkg.com and it will get react from unpkg.com 
+suppose if i already have React in our node module how easy it would be to use react isn't?
+
+- we don't want to make another network call to react  instead we will have it in node_modules
+
+- 2nd thing is if someday a new version came then we need  to update the CDN link with the new version so it's better to have it inside package.json it easier to manager all our dependencies and is it very easy to manage react also as one of the dependencies  inside our npm package.json
+
+now we will install React as package
+using:
+npm install react
+
+notice we are not using -D here  
+cuase i need react as normal dependencies not as dev dependencies 
+
+now we get React in our package.json and insdie package-lock.json also in our node_modules 
+
+now let's install react dom 
+using:
+npm install react-dom
+
+Now we no longer need this CDN link
+
+- after removing CDN link we will run again using:
+npx parcel index.html
+
+and we will se an error that:
+Uncaught ReferenceError: React is not defined
+
+it's because earier that React was comming from CDN link now that React is installed inside node_modules
+
+Now how do we use React into our code now?
+=> by importing it
+
+Now after importing it we got error that:
+Browser script can not have imports or exports
+
+to fix it simply use type='module' in script tag
+
+now our code is running fine and now this is not comming from CDN instead it's comming from node_modules the package that we installed as dependencies
+
+as soon as you change any text in nodes it change fastly which is done by parcel
+# parcel
+- dev build
+- local server
+- HMR = Hot Module Replacement
+- File watching Algorithm - algorithm in c++
+- Caching - Faster Build
+- Image optimization
+- Minification 
+- Bundling
+- Compress
+- consistent Hashing
+- code spliting 
+- Differential Bundling - support older browser
+- Error Handling
+- HTTPs
+- Tree Shaking - remove unused code
+- Different dev an prod bundles
+
+React is not the only thing that making our app Fast 
+there are so many thing that bundler is doing 
+
+for production build:
+npx parcel build index.html
+
+
+
+let's make it our app compatible for older version as well so, for that we will use browserList
+# browserList
+helps us to work on specific browser version / country it creates a bunldle for different version 
+
+
+- we add like this:
+"dependencies": {
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3"
+  }, 
+  "browserslist": [
+    "last 2 chrome version",
+    "last 2 firefox version"
+  ]
+
+  // it means it will work in this version 100% rest of the one is not sure it might work or might not
+
+- we can also give country specific detail
+
+- now with all this parcel, bebel, browserList we have created our own react app
+
+- we have see how can we build a production ready app, we have ignited our app, we have given our app super powerfull, we have made power intelligent, we have given muscles to our app, we have given strength to our app
+
+We have explore
+- what is bundler
+- what is npm
+- what is .gitignore
+- what is parcel
+- what is parcel cache
+- what is node_modules
+- why there is package and package-lock.json
+- how hmr working
+
+- we saw parcel is a beast it gives super power to our app
+
+- be curios about dammnn small things
+
+- most of the dev thing we don't know what react job is and what bundler is doing
+
+- we think all of the ubove job react is doing 
+- we think react is optimizing our image, compressing...etc 
+
+but noooo react isn't doing this

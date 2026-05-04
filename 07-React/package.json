@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "04-react",
+  "version": "1.0.0",
+  "description": "A Food Delivery WebApp",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "React",
+    "Food",
+    "Delivery",
+    "WebApp"
+  ],
+  "author": "Sasuke Uchiha",
+  "license": "ISC",
+  "dependencies": {
+    "parcel": "^2.16.3",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "react-router-dom": "^7.11.0"
+  }
+}

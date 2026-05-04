@@ -1,0 +1,59 @@
+In the last episode we saw how we can create state variable using useState
+
+Approach 1:
+Loads => API (500ms) => Render
+
+Approach 2:
+Loads => Render(skelton) => API => Render
+
+To get started with Approach 2 we need somethign known as useEffect()
+useEffect() is nothing but a normal js function which React give to us it has it's own specific use case
+
+Just like we had useState to create state variables, useEffect has it's own specific purpose
+
+Purpose of useEffect:
+
+
+First we need to import just like useState()
+let's see it's syntax:
+useEffect()
+it has two argument 
+useEffect(()=>{}, [])
+first parameter will be an arrow function callback function 
+second argument will be a dependencies array
+
+When will be this useEffect's callback function will be called
+
+this call back function will be called after our component render
+
+now let's call swiggy API
+as we call swiggy api we got an error:
+Access to fetch at '{swiggy api}' from origin 'http://localhost:1234' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+
+Who's blocking us?
+our browser block us to call api from one origin to another origin
+if there is origin mis match then the browser block the api call that's the CORS policy
+
+------------
+part 04
+
+Let's add loading while we are making api call 
+
+Conditional rendering:
+- rendering on the basis of condition is known as conditional rendering
+
+
+useState():
+when a state var change react re-render the component with updated value which gets updated UI
+
+-----
+part 06
+
+Let's build the search functionality 1:33:00
+
+- Whenever state variable update, react triggers a reconciliation cycle (re-render the component)
+
+- React is re-rendering the whole component but it is only updating input box value inside the DOM
+
+- Virtual DOM isn't making the our react app fast its react reconciliation algorightm which finds out the difference between two virtual dom and updates the dom only when required and  only portion of dom 
+

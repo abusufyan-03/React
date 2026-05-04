@@ -1,0 +1,98 @@
+<!-- Let's  first write the plain hello world program in plain HTML -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello React</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <h1>HEllo Top Root</h1>
+    <div id="root">
+        <!--  <h1>Hello React</h1>
+         Now let's use js to build the same program
+       -->
+         <h1>Sasuke Uchiha</h1> 
+         <h1>Sasuke Uchiha</h1>
+         <h1>Sasuke Uchiha</h1> <!-- it will get replace by root.render(parent) -->
+    </div>
+    <h1>Hello Below Root</h1>
+
+    <script>
+        /* const heading = document.createElement('h1');
+        heading.innerHTML = 'Hello World from Javascript';
+        const root = document.getElementById('root');
+        root.appendChild(heading); */
+
+        /*
+        Q: the Question arrive how does this project understand what is innerHTML, what is getElementById? what is createElement? how does browser understand what are these 
+
+        A: this createLElement, innetHTML..etc these are the super powers which browser already have in it, browser has js engine in it that execute these js   but does the browser know what is React? Noooo  browser do not understand React code.
+
+        So, what we have to do is first get React into our project
+        1st way: through CDN React
+
+        H.W: What is CDN
+        => CDN is content delivery network these are the webSites where this React has been hosted and we are just pulling react from there into our project
+        => Basically CDN is the place where this React Library is hosted and we are just fetching the react putting it into our code using CDN link
+
+        => A CDN host React's file on distributed servers worldwide, and by linking to it into our HTML, we're just pulling the library directly into our project without downloading or hosting it ourself
+        */
+    </script>
+
+    <!-- react.dev CDN -->
+  <!--   <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js">
+    </script> -->
+
+    <!-- 
+     Now our project has React inside it 
+     now our project has the super Power of React inside
+     Now whatever code we write in react will be understand by our code and browser
+    -->
+
+    <!-- 
+    2. H.W: What is crosseOrigin 
+    =>The crossorigin attribute on a <script> tag enables Cross-Origin Resource Sharing (CORS) for loading scripts from external domains like CDNs, controlling how the browser handles credentials and error reporting.
+
+    # crossorigin Purpose
+    => It tells the browser to fetch the script (e.g., React from unpkg.com) as a cross-origin request without sending user cookies or auth data when set to "anonymous".
+    This is required for public CDN scripts to avoid security blocks, ensure proper caching, and expose detailed JavaScript errors (instead of generic 
+    "Script error") if something fails.
+
+
+    # Why there is two React script?
+    - First script is the react.development file which is the core file of react
+    - second one is react dom this is the react library which is usefull for dom operation or this is the react dom which we need to modify the DOM
+
+    # Why React made two different file for both of them?
+     couldn't we have both one file and combine everything up?
+     => Noooo let's see why
+     - React doesn't not only work on browser, React also works on mobile phone as React Native and then there someting known as React 3D there are different type of react, different types of places where react is used 
+
+    So, there are differen functions, method which are being used inside React Native or Browser..different places that is why there are two files
+
+    The main file react.development file is the core react thing and the other one is kind of a bridge between these React and Browsers so it's like React DOM which is like a bridge to connect to the DOM as we go ahead we'll amazing cool things which this library will give to us
+
+    -->
+    
+    <!-- ReactDOM CDN LINK -->
+    <!-- <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js">
+    </script>  -->
+
+    <!-- Let's create the same Hello World program  using React -->
+     <script type="module" src="./app.js" >
+        /* const heading = React.createElement('h1', {}, 'Hello World from React');
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+
+        root.render(heading); */
+        
+        /* Now let's do this in seprate file */
+     </script>
+
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+Let's build food ordering website
+
+# Before building anything first plan things
+# You should exactly know what you will build
+# what's the process 
+# how your webisite will look
+
+1:00:16
+# Now let's make the 2nd card of KFC 
+How can we do that?
+
+# Props
+- short form for property
+- property is somethign that we can pass on
+
+- suppose we want to pass data dynamic how can we do that 
+- we can pass it as props 
+
+- props is just a normal argument to a function
+
+- when I say I'm passing a prop to a component It  is exactly like I'm passing a arugment to a funtcion
+
+- passign a prop to a component is exaclty like passing an argument to a function
+
+Let's see how we pass a prop:
+<RestaurantCard 
+resName="Meghna Food"
+cuisin=""
+/>
+<RestaurantCard/>
+
+# Config driven UI
+- it means your UI is driven by a config
+
+---
+
+A good senior frontend Engneer is a very good UI layer Engneer as well as Data layer Engneer
+
+Why it's mendatory to have a key propery in component when we are looping 
+
+# container
+  - RestaurantCard
+  - RestaurantCard
+  - RestaurantCard
+  - RestaurantCard
+
+it should be uniquely represented but why?
+- because suppose there is new Restaurant came in the first place now react have to insert a new Restaurant component on the first place so it need to key to indetify that new component
+
+
+# Read About
+ - index as key
+ - babel documentaion
+ - parcel documentation
+-----------------------------------
+
+05 - react
+
+# Let's do folder structure
+
+Read about the 
+- File Structure 
+
+Let's create a folder name 
+src and will put all of our code inside it
+and inside it we will have folder for component
+
+---
+# There is two types of export and import 
+
+- export defualt resList
+- names exports
+
+# defualt export/import
+export defualt component/varaible
+import component from "path";
+- we can not export twice in single file
+
+# named export/import
+export const component
+import {component} from "path"
+
+.................
+let's get hooked 
+part 02
+
+let's create a feature for top rated restaurant 
+where we will built a button to filter top rated restaurant
+
+What is hooked? 
+A normal js function which is given to us by react it's a prebuilt the only things is that that function come with some super power that function has logic written behind the scene inside react
+
+# React Hooks
+(normal JS Utility function)
+- useState() - superpowerfull state variable in react
+- useEffect() -
+
+# useEffect ()
+it maintains the state of our component
+it keeps the UI sync with data layer
+
+definition:
+whenever state variable updates, React will rerender the component

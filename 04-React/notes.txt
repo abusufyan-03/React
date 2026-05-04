@@ -1,0 +1,48 @@
+Let's build food ordering website
+
+# Before building anything first plan things
+# You should exactly know what you will build
+# what's the process 
+# how your webisite will look
+
+1:00:16
+# Now let's make the 2nd card of KFC 
+How can we do that?
+
+# Props
+- short form for property
+- property is somethign that we can pass on
+
+- suppose we want to pass data dynamic how can we do that 
+- we can pass it as props 
+
+- props is just a normal argument to a function
+
+- when I say I'm passing a prop to a component It  is exactly like I'm passing a arugment to a funtcion
+
+- passign a prop to a component is exaclty like passing an argument to a function
+
+Let's see how we pass a prop:
+<RestaurantCard 
+resName="Meghna Food"
+cuisin=""
+/>
+<RestaurantCard/>
+
+# Config driven UI
+- it means your UI is driven by a config
+
+---
+
+A good senior frontend Engneer is a very good UI layer Engneer as well as Data layer Engneer
+
+Why it's mendatory to have a key propery in component when we are looping 
+
+# container
+  - RestaurantCard
+  - RestaurantCard
+  - RestaurantCard
+  - RestaurantCard
+
+it should be uniquely represented but why?
+- because suppose there is new Restaurant came in the first place now react have to insert a new Restaurant component on the first place so it need to key to indetify that new component
