@@ -21,9 +21,11 @@ const Body = () => {
         const json = await data.json();
         console.log(json);
 
-        setRestaurantList(json?.data?.cards[1].card.card.gridElements.infoWithStyle.restaurants);
-        setFilterRestaurant(json?.data?.cards[1].card.card.gridElements.infoWithStyle.restaurants);
-        console.log(json?.data?.cards[1].card.card.gridElements.infoWithStyle.restaurants);
+        // setRestaurantList(json?.data?.cards[1].card.card.gridElements.infoWithStyle.restaurants);
+        // setFilterRestaurant(json?.data?.cards[1].card.card.gridElements.infoWithStyle.restaurants);
+        // console.log(json?.data?.cards[1].card.card.gridElements.infoWithStyle.restaurants);
+        setRestaurantList(resList);
+        setFilterRestaurant(resList);
     }
 
     /* *Conditional rendering */
@@ -43,8 +45,9 @@ const Body = () => {
     const onlineStatus = useOnlineStatus();
     // console.log("online status:", onlineStatus)
 
-    if(onlineStatus == false) return <h1>Look like you're offline</h1>
+    if (onlineStatus == false) return <h1>Look like you're offline</h1>
 
+    console.log("restaurant list", restaurantList);
     return restaurantList.length == 0 ? <Shimmer /> : (
         <main className="main p-4 md:p-6 lg:p-8">
             <section>
@@ -56,17 +59,17 @@ const Body = () => {
                             setSearchText(e.target.value);
                             console.log(searchText)
                         }}
-                         onKeyPress={(e)=>{
-                            if(e.key === 'Enter'){
+                        onKeyPress={(e) => {
+                            if (e.key === 'Enter') {
                                 handleSearch();
                             }
                         }}
                         type="text"
                         placeholder="search..." />
                     <button className="search-btn btn border p-2 rounded-lg mr-2 hover:bg-black cursor-pointer hover:text-white font-semibold"
-                    onClick={()=>{
-                        handleSearch();
-                    }}
+                        onClick={() => {
+                            handleSearch();
+                        }}
                     >Search</button>
                     <button className="filter-btn btn border p-2 rounded-lg mt-2 cursor-pointer hover:bg-black hover:text-white font-semibold"
                         onClick={() => {
@@ -77,7 +80,8 @@ const Body = () => {
                     >Top Rated Restaurant</button>
                 </div>
                 <div className="restaurant-container grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-6 lg:grid-cols-4 lg:gap-8">
-                    {filterRestaurant.map((restaurant, index) => <Link key={restaurant.info.id}   to={`restaurants/${restaurant.info.id}`}><RestaurantCards resData={restaurant} /></Link> )}
+                    {filterRestaurant.map((restaurant, index) => <Link key={restaurant.data.id} to={`restaurants/${restaurant.data.id}`}>
+                        <RestaurantCards resData={restaurant} /></Link>)}
                 </div>
             </section>
         </main>

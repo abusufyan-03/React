@@ -2,8 +2,8 @@
 import {CDN_URL}  from "../utils/constant.js"
 const RestaurantCards = (props) => {
     const {resData} = props;
-    const {cloudinaryImageId, name, cuisines, avgRating, costForTwo} = resData?.info;
-    const {deliveryTime} = resData?.info.sla
+    const {cloudinaryImageId, name, cuisines, avgRating, costForTwo} = resData?.data;
+    const {deliveryTime} = resData?.data.sla
     return (
         <div className="res-card bg-slate-50 rounded-lg shadow-lg border">
             <div className="res-media">
