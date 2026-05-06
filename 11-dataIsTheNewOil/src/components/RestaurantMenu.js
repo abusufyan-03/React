@@ -16,7 +16,13 @@ const RestaurantMenu = () => {
     }
 
     const resInfo = useRestaurantMenuData(resId);
-    // console.log("resInfo", resInfo)
+    console.log("resInfo", resInfo)
+    const catt = resInfo.map((c)=>c.title)
+    console.log("Catt", catt)
+
+    // const catt2 = catt.map((c)=> c.title)
+    // console.log("catt2", catt2)
+    console.log("catt2", catt[0])
 
 
     return resInfo.length === 0 ? <RestaurantMenuShimmer /> : (

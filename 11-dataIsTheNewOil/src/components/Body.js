@@ -1,5 +1,5 @@
 import resList from "../utils/resList";
-import RestaurantCards from "./RestaurantCards";
+import RestaurantCards, { withPromotedLabel } from "./RestaurantCards";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router";
@@ -19,13 +19,13 @@ const Body = () => {
         const data = await fetch(RES_API);
 
         const json = await data.json();
-        console.log(json);
+        // console.log(json);
 
-        // setRestaurantList(json?.data?.cards[1].card.card.gridElements.infoWithStyle.restaurants);
-        // setFilterRestaurant(json?.data?.cards[1].card.card.gridElements.infoWithStyle.restaurants);
+        setRestaurantList(json?.data?.cards[1].card.card.gridElements.infoWithStyle.restaurants);
+        setFilterRestaurant(json?.data?.cards[1].card.card.gridElements.infoWithStyle.restaurants);
         // console.log(json?.data?.cards[1].card.card.gridElements.infoWithStyle.restaurants);
-        setRestaurantList(resList);
-        setFilterRestaurant(resList);
+        // setRestaurantList(resList);
+        // setFilterRestaurant(resList);
     }
 
     /* *Conditional rendering */
@@ -47,7 +47,11 @@ const Body = () => {
 
     if (onlineStatus == false) return <h1>Look like you're offline</h1>
 
-    console.log("restaurant list", restaurantList);
+    // console.log("restaurant list", restaurantList);
+
+    const RestaurantCardsPromoted = withPromotedLabel(RestaurantCards)
+
+    // console.log("promoted:", resList[0].data.promoted) 
     return restaurantList.length == 0 ? <Shimmer /> : (
         <main className="main p-4 md:p-6 lg:p-8">
             <section>
@@ -80,8 +84,17 @@ const Body = () => {
                     >Top Rated Restaurant</button>
                 </div>
                 <div className="restaurant-container grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-6 lg:grid-cols-4 lg:gap-8">
-                    {filterRestaurant.map((restaurant, index) => <Link key={restaurant.data.id} to={`restaurants/${restaurant.data.id}`}>
-                        <RestaurantCards resData={restaurant} /></Link>)}
+                    {filterRestaurant.map((restaurant, index) => <Link key={restaurant.info.id} to={`restaurants/${restaurant.info.id}`}>
+
+
+                    {/* {restaurant.data.promoted? (
+                        <RestaurantCardsPromoted resData={restaurant}/>
+                        ) : ( 
+                        <RestaurantCards resData={restaurant} />
+                        )} */}
+
+                        <RestaurantCards resData={restaurant} />
+                        </Link>)}
                 </div>
             </section>
         </main>

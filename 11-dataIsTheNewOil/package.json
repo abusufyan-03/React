@@ -10,5 +10,8 @@
     "clean": "rm -rf .parcel-cache dist",
     "dev": "npm run clean && parcel src/index.html",
     "start": "npx parcel src/index.html"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.2.4"
   }
 }

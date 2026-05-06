@@ -24,7 +24,21 @@ const useRestaurantMenuData = (resId) =>{
                 return;
             }
             // console.log(json)
-            setResInfo(json.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards[5].card.card.categories)
+            // setResInfo(json.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards[5].card.card.categories)
+            console.log("Res-Menu: ", json.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards[5].card.card)
+
+            const cat = json.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards.filter((cat)=> cat.card.card.categories );
+            console.log("cat", cat)
+
+            console.log("Testing", json.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards)
+
+            // const cat2 = cat.filter((cat)=> cat.card.card.categories)
+            // console.log("cat2", cat2);
+
+            // const cat3 = cat2.map((cat2)=> cat2.card.card.categories)
+            // console.log("Cat3", cat3)
+
+            setResInfo(cat)
         } catch (error) {
             console.error("Error", error)
         }
