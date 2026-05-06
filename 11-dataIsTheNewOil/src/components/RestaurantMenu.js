@@ -3,6 +3,7 @@ import { useParams } from "react-router";
 import { CDN_SMALL } from "../utils/constant";
 import useRestaurantMenuData from "../utils/useRestaurantMenuData"
 import { useState } from "react";
+import RestaurantCategory from "./RestaurantCategory";
 const RestaurantMenu = () => {
     const [openResInfo, setOpenResInfo] = useState({});
 
@@ -30,7 +31,7 @@ const RestaurantMenu = () => {
         <>
             <div className="menu-card">
 
-                {resInfo.map((categories, catIndex) => (
+                {/* {resInfo.map((categories, catIndex) => (
                     <div className="categoroy-section p-4 mx-auto md:w-lg lg:w-210 " key={catIndex}>
                         <div className={`category-header text-lg font-semibold cursor-pointer p-4 bg-slate100 flex justify-between border rounded-lg ${openResInfo[catIndex] ? "bg-slate-200 border-b-0 rounded-b-none" : ''}`} onClick={() => toggleCategories(catIndex)}>
                             <h2 className={`item-title ${openResInfo[catIndex] ? "active" : ''} `}>{categories.title}<span>({categories.itemCards.length})</span> </h2><span className="open-icon">{openResInfo[catIndex] ? "▲" : "▼"}</span>
@@ -60,7 +61,8 @@ const RestaurantMenu = () => {
 
                         </div>
                     </div>
-                ))}
+                ))} */}
+                {resInfo.map((category, index)=> <RestaurantCategory key={category.categoryId} category={category}/>)}
             </div>
         </>
     )
