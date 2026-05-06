@@ -16,13 +16,14 @@ const RestaurantMenu = () => {
     }
 
     const resInfo = useRestaurantMenuData(resId);
+
     console.log("resInfo", resInfo)
-    const catt = resInfo.map((c)=>c.title)
-    console.log("Catt", catt)
+    // const catt = resInfo.map((c)=>c.title)
+    // console.log("Catt", catt)
 
     // const catt2 = catt.map((c)=> c.title)
     // console.log("catt2", catt2)
-    console.log("catt2", catt[0])
+    // console.log("catt2", catt[0])
 
 
     return resInfo.length === 0 ? <RestaurantMenuShimmer /> : (
@@ -31,8 +32,8 @@ const RestaurantMenu = () => {
 
                 {resInfo.map((categories, catIndex) => (
                     <div className="categoroy-section p-4 mx-auto md:w-lg lg:w-210 " key={catIndex}>
-                        <div className={`category-header cursor-pointer p-4 bg-slate100 flex justify-between border rounded-lg ${openResInfo[catIndex] ? "bg-slate-200 border-b-0 rounded-b-none" : ''}`} onClick={() => toggleCategories(catIndex)}>
-                            <h2 className={`item-title ${openResInfo[catIndex] ? "active" : ''} `}>{categories.title} </h2><span className="open-icon">{openResInfo[catIndex] ? "▲" : "▼"}</span>
+                        <div className={`category-header text-lg font-semibold cursor-pointer p-4 bg-slate100 flex justify-between border rounded-lg ${openResInfo[catIndex] ? "bg-slate-200 border-b-0 rounded-b-none" : ''}`} onClick={() => toggleCategories(catIndex)}>
+                            <h2 className={`item-title ${openResInfo[catIndex] ? "active" : ''} `}>{categories.title}<span>({categories.itemCards.length})</span> </h2><span className="open-icon">{openResInfo[catIndex] ? "▲" : "▼"}</span>
                         </div>
                         <div className={`item-list border border-t-0 rounded-b-lg ${openResInfo[catIndex] ? "" : 'hidden'}`}>
                             {categories.itemCards?.map((item, itemIndex) => (
