@@ -1,18 +1,20 @@
 import { useState } from "react"
 import ItemList from "./ItemList"
 
-const RestaurantCategory = ({category}) =>{
+const RestaurantCategory = ({category, showItem, setShowIndex, categoryIndex}) =>{
     console.log("cateogry", category)
-    const [showItem, setShowItem] = useState(false)
+    // const [showItem, setShowItem] = useState(false)
     const handleToggle = () =>{
-        setShowItem(!showItem)
+        // setShowItem(!showItem)
+
+        setShowIndex((prev)=> (prev === categoryIndex? null : categoryIndex))
     }
     return(
         <>
         {/* accordian section */}
         <div className="p-4 mx-auto md:w-lg lg:w-210">
             {/* Cateogry header */}
-                <div key={category.categoryId} className={`text-lg font-semibold cursor-pointer p-4 bg-slate100 flex justify-between border rounded-lg ${showItem? "bg-slate-200 rounded-b-none border-b-0": ""}`} onClick={()=>handleToggle()}>
+                <div key={category.categoryId} className={`text-lg font-semibold cursor-pointer p-4 bg-slate100 flex justify-between border rounded-lg `} onClick={handleToggle}>
                     <h2>{category.title} <span>({category.itemCards.length})</span></h2><span className="showItem-icon">{showItem? "⬆️": "⬇️"}</span>
                 </div>
 
