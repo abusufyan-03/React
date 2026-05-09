@@ -49,3 +49,37 @@ part 02
 
 what is controlled and uncontrolled components
 lifting the state up
+
+
+--------------------------------
+part02 | part 04 
+# React context
+
+in React we pass data from parent to child
+
+read about what is prop drilling
+
+How to create a react context?
+=> create a(UserContext) file and import `createContext` from `React`
+=> 
+```js 
+const UserContext = createContext({
+    loggedInUser: "Default User"
+})
+```  
+How do you use react context?
+import context hook called `useContext` then
+const {loggedInUser} = useContext(UserContext)
+now you got the data 
+
+Now how do we read reactContext inside a class-base component?
+using :
+```js
+<UserContext.Consumer> 
+{({loggedInUser})=>{
+    <h1>{loggedInUser}</h1>
+}}
+</UserContext.Consumer>
+
+```
+it takes a callback function  and that callback function gives us the accesss of userContext
