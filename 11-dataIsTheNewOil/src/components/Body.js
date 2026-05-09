@@ -1,10 +1,11 @@
 import resList from "../utils/resList";
 import RestaurantCards, { withPromotedLabel } from "./RestaurantCards";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router";
 import { RES_API } from "../utils/constant";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 const Body = () => {
     const [restaurantList, setRestaurantList] = useState([]);
     const [searchText, setSearchText] = useState('');
@@ -52,6 +53,7 @@ const Body = () => {
     const RestaurantCardsPromoted = withPromotedLabel(RestaurantCards)
 
     // console.log("promoted:", resList[0].data.promoted) 
+    const {setUserName} = useContext(UserContext)
     return restaurantList.length == 0 ? <Shimmer /> : (
         <main className="main p-4 md:p-6 lg:p-8">
             <section>
@@ -82,6 +84,14 @@ const Body = () => {
                         }}
 
                     >Top Rated Restaurant</button>
+                      
+                      {/* React context */}
+                    <input 
+                    placeholder="react-context-ex" 
+                    className="p-2 border rounded-lg ml-2"
+                    
+                    onChange={(e)=>{setUserName(e.target.value)}}
+                    />
                 </div>
                 <div className="restaurant-container grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-6 lg:grid-cols-4 lg:gap-8">
                     {filterRestaurant.map((restaurant, index) => <Link key={restaurant.info.id} to={`restaurants/${restaurant.info.id}`}>
