@@ -55,15 +55,18 @@ we need two thing react testing libary and jest into our apps
 # setting up testing in our app
 - install react testing library
 - Install jest
-- Install bebel dependecies
+- Install bebel dependecies (from jest docs)
 - Configure Babel (from jest docs)
 - Configure Parcel config file to use to disable default babel transpilation (from parcel docs )
+
 
 now let's install the react testing library using this cmd:
 `npm i -D @testing-library/react`
 
+
 now install jest:
 `npm i -D jest`
+
 
 we are using jest along with bebel
 so now we are going to install bebel
@@ -99,3 +102,5 @@ go to this url
 ```
 this will allow other tools to continue using your Babel config, but disable Babel transpilation in Parcel.
 
+Now do this ubove configuration for test and then we will write some test cases
+----------------------------------------------------------------------------------------

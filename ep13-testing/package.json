@@ -8,12 +8,17 @@
     "react-router": "^7.15.1"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "clean": "rm -rf .parcel-cache dist",
     "dev": "npm run clean && parcel src/index.html",
     "start": "npx parcel src/index.html"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4.3.0"
+    "@babel/core": "^7.29.0",
+    "@babel/preset-env": "^7.29.5",
+    "@tailwindcss/postcss": "^4.3.0",
+    "@testing-library/react": "^16.3.2",
+    "babel-jest": "^30.4.1",
+    "jest": "^30.4.2"
   }
 }
