@@ -104,3 +104,116 @@ this will allow other tools to continue using your Babel config, but disable Bab
 
 Now do this ubove configuration for test and then we will write some test cases
 ----------------------------------------------------------------------------------------
+
+let's write test cases
+but before that we need to make one configuration which is a jest configuraion:
+
+above steps + this
+- jest configuration
+
+cmd:
+`npx create-jest `
+
+What is jsdom?
+the test cases doesn't run on chrome, browser so they need a environment to run
+
+IT's not a browser but it gives a feature like a browser
+
+NOW WE NEED TO INSTALL JSDOM LIBRARY
+
+if we use use it with `react testing library`
+
+if we are using jest version greater than 28 than you have to install the package `jest-environment-jsdom` separatly
+
+now install the `jest-environment-jsdom` as well
+using cmd:
+`npm install --save-dev jest-environment-jsdom`
+
+# Now let's write test cases:
+
+let's first write test cases for basic js program
+
+write sum funtion in sum.js file
+
+now where do we write test cases it turned out that we have a dedicated folder for that:
+`__tests__
+
+
+if we have Header.test.js || Header.spec.js => test file
+if we have a Header.js inside a __tests__ folder => test file
+__(two underscore) => dundar method
+
+writting test case for sum.js:
+
+```js
+import { sum } from "../sum"
+
+test("sum function should calculate the sum of two numbers", ()=>{
+    const result = sum(3, 4);
+
+    //Assertion
+    expect(result).toBe(7);
+})
+```
+
+# now let's see how to write test case for React:
+
+let's write test for contact component if it;s render or not
+
+```js
+import { render } from "@testing-library/react"
+import Contact from "../Contact.js";
+
+
+test("Should laod contact us component", ()=>{
+    render(<Contact/>);
+
+    const heading = screen.getByRole("heading");
+
+    expect(heading).toBeInDocument();
+})
+
+
+```
+it will give one error:
+`Support for the experimental syntax 'jsx' isn't currently enabled (6:12):`
+we need to add:
+` Add @babel/preset-react (https://github.com/babel/babel/tree/main/packages/babel-preset-react) to the 'presets' section of your Babel config to enable transformation.`
+
+install `@babel/preset-react` to make jsx work in test cases
+include `@babel/preset-react` inside my babel config
+
+update babel.config.js file:
+```js
+module.exports = {
+  presets: [
+    ['@babel/preset-env', {targets: {node: 'current'}}],
+    ['@babel/preset-react', {runtime: 'automatic'}] //update
+  
+  ],
+};
+```
+
+now let's run test case again: 
+
+we will get error again
+we need to install another library to be able to use `toBeInDocument`
+
+Install:
+`@testing-library/jest-dom`
+
+updated contact.test.js file:
+```js
+import { render, screen } from "@testing-library/react"
+import Contact from "../Contact.js";
+import "@testing-library/jest-dom"
+
+
+test("Should laod contact us component", ()=>{
+    render(<Contact/>);
+
+    const heading = screen.getByRole("heading");
+
+    expect(heading).toBeInTheDocument();
+})
+```
