@@ -4,7 +4,7 @@ const logo = new URL('../assets/logo.png', import.meta.url);
 import { useState } from 'react';
 // import '../style.css';
 // import '../responsiveness.css'
-import "../index.css"
+// import "../index.css"
 import { Link } from 'react-router';
 import useOnlineStatus from '../utils/useOnlineStatus';
 import UserContext from '../utils/UserContext.js';
